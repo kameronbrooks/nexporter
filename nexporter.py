@@ -47,7 +47,19 @@ class OBJECT_OT_export_collection_fbx(Operator, ExportHelper):
 
             # Export the object as FBX with its name
             file_path = os.path.join(dir_path, obj.name + ".fbx")
-            bpy.ops.export_scene.fbx(filepath=file_path, use_selection=True, use_space_transform=True, bake_space_transform=True, global_scale=fbx_units_scale, apply_scale_options='FBX_SCALE_ALL', axis_forward='-Z', axis_up='Y')
+            bpy.ops.export_scene.fbx(
+                filepath=file_path, 
+                use_selection=True, 
+                use_space_transform=True, 
+                bake_space_transform=True, 
+                global_scale=fbx_units_scale, 
+                apply_scale_options='FBX_SCALE_ALL', 
+                axis_forward='-Z', 
+                axis_up='Y'
+                use_mesh_modifiers=True,
+                colors_type='LINEAR',
+                use_triangles=True
+                )
 
         self.report({'INFO'}, "Exported objects to " + dir_path)
         return {'FINISHED'}
