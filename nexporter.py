@@ -1,7 +1,8 @@
 bl_info = {
-    "name": "Export Collection Objects as FBX",
+    "name": "Nexporter",
+    "description": "Export Collection Objects as FBX",
     "blender": (2, 93, 0),
-    "category": "Object",
+    "category": "Import-Export",
 }
 
 import bpy
@@ -55,7 +56,7 @@ class OBJECT_OT_export_collection_fbx(Operator, ExportHelper):
                 global_scale=fbx_units_scale, 
                 apply_scale_options='FBX_SCALE_ALL', 
                 axis_forward='-Z', 
-                axis_up='Y'
+                axis_up='Y',
                 use_mesh_modifiers=True,
                 colors_type='LINEAR',
                 use_triangles=True
